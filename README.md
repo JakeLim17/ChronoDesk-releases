@@ -1,9 +1,9 @@
 # ChronoDesk
 
-**여러 Claude Code·Codex 계정을 한 창에서 쓰는 Mac 작업대**입니다.
+**여러 Claude Code·Codex 계정을 한 창에서 쓰는 Mac 작업대**입니다(윈도우 시험판도 있습니다).
 대화, 코드, 터미널, 웹·iOS 미리 보기가 한 화면에 있고, 같은 프로젝트를 여러 갈래(작업 공간)로 나눠 AI 여럿에게 동시에 맡길 수 있습니다.
 
-> 지인 베타입니다. 무료이고, 이 Mac 안에서만 동작합니다. [English below](#english)
+> 베타입니다. 무료이고, 내 컴퓨터 안에서만 동작합니다. [English below](#english)
 
 ![ChronoDesk 전체 화면: 왼쪽 프로젝트·작업 공간 목록, 가운데 AI 대화, 오른쪽 iPhone 크기 미리 보기](images/01-main.png)
 
@@ -19,6 +19,18 @@
 - 각 서비스의 본인 구독 계정. 로그인은 공식 프로그램의 로그인 화면에서 직접 합니다.
 
 업데이트: 새 버전이 나오면 앱이 뒤에서 받아 두고 왼쪽 아래에 **「업데이트 준비됨」**이 뜹니다. 누르면 다시 켜지며 바뀝니다(대화 기록은 그대로). 지금 버전은 오른쪽 아래 **「빌드 N」**에서 봅니다.
+
+### 윈도우 (시험판)
+
+[Releases](https://github.com/JakeLim17/ChronoDesk-releases/releases)에서 **「윈도우 시험판」**(Pre-release)의 `ChronoDesk-0.1.0-<빌드>-win-x64.zip`을 받습니다. Windows 10/11 64비트(x64)용이고, 서명하지 않은 실험판입니다.
+
+1. PowerShell에서 쓰려는 AI 프로그램을 설치합니다(관리자 권한 불필요).
+   - Claude Code: `irm https://claude.ai/install.ps1 | iex`
+   - Codex CLI: `powershell -ExecutionPolicy ByPass -c "irm https://chatgpt.com/codex/install.ps1 | iex"`
+2. 새 PowerShell 창에서 `claude`나 `codex`를 실행해 로그인합니다.
+3. zip을 풀고 `ChronoDesk.exe`를 실행합니다. 「Windows의 PC 보호」가 뜨면 「추가 정보」 → 「실행」.
+
+윈도우에서는 Claude·Codex 연결까지 확인했고 나머지 기능은 확인 중입니다. 자동 업데이트가 없고, iOS 시뮬레이터 등 Mac 전용 기능은 동작하지 않습니다. 안 되면 계정 화면의 **「연결 진단」** 결과를 Issues에 남겨 주세요.
 
 ## 처음 10분 안내
 
@@ -89,12 +101,14 @@ AI 창 위 **⊞**로 대화 2~4개를 나란히 띄워 여러 작업 공간을 
 
 **ChronoDesk is a Mac workbench for using multiple Claude Code and Codex accounts in one window** — chats, code, terminal, and web/iOS previews side by side, plus parallel *workspaces* (git worktrees) so several AIs can work on the same project at once.
 
-Friends-and-family beta. Free, runs only on your Mac.
+Beta. Free, runs only on your own computer. A Windows preview is also available (see below).
 
 **Install:** download the latest `ChronoDesk-0.1.0-<build>-arm64.dmg` from **Releases**, drag ChronoDesk to **Applications**, and open it. Requires an Apple silicon Mac and Claude Code and/or Codex CLI with your own subscription (you sign in through the official tools). Updates download in the background; click **"Update ready"** at the bottom left to restart into the new version. The current build is shown at the bottom right.
 
 **First 10 minutes:** add an account (person icon) → add a project (**+ Add** or drag a folder in) → **+ New chat**, pick where and which account → open your dev server in the preview (type a port such as `3000`) → for parallel work choose **"in a new workspace"** and **"Account with most room (auto)"** → when a workspace is **Ready to merge**, click **Review and merge** to see commits, diffs and likely conflicts, ask the other AI for a **cross-review**, then merge. Use **⊞** to watch 2–4 chats side by side and **Compare** to view two previews side by side.
 
 **Privacy:** no ChronoDesk server; nothing about your usage is sent anywhere except checking this repository for new versions (can be turned off). ChronoDesk never reads or sends your sign-in tokens. Data lives in `~/.agent-accounts`. Use only accounts you own and follow each service's terms; the public build never switches accounts automatically. Claude is a trademark of Anthropic; Codex and ChatGPT are trademarks of OpenAI; ChronoDesk is an independent tool not affiliated with either.
+
+**Windows (preview):** download `ChronoDesk-0.1.0-<build>-win-x64.zip` from the **Windows preview** pre-release under [Releases](https://github.com/JakeLim17/ChronoDesk-releases/releases) (Windows 10/11 x64, unsigned). Install Claude Code (`irm https://claude.ai/install.ps1 | iex`) and/or Codex CLI in PowerShell, sign in once by running `claude` or `codex`, then unzip and run `ChronoDesk.exe` (SmartScreen: "More info" → "Run anyway"). Connecting to Claude and Codex has been confirmed on Windows; other features are still being tested. No auto-update; Mac-only features such as the iOS simulator are unavailable. If something fails, please attach the **Connection check** output from the Accounts screen to an Issue.
 
 Questions or bugs: please open an **Issue**.
